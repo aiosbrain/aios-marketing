@@ -1,0 +1,32 @@
+.DS_Store
+node_modules/
+
+# Repo is PUBLIC. Nothing below this line may ever be committed.
+
+# Applicant / attendee PII (names, emails, phone, LinkedIn URLs tied to real people,
+# any Firecrawl lookup output cached locally). Only data/README.md is tracked.
+/data/*
+!/data/README.md
+
+# Private venue address once specific (home address in Mas, Ubud) — disclosed only
+# via a private one-to-one channel post-acceptance, never committed.
+**/venue-address.md
+**/venue-address.*
+
+# Raw, unreviewed inputs that may carry NDA-embargoed client details or unfiltered PII.
+/1-inbox/raw-transcripts/*
+!/1-inbox/raw-transcripts/.gitkeep
+
+# Private scratch — never for a public repo.
+/5-personal/*
+!/5-personal/.gitkeep
+
+# NDA / confidentiality leak-gate term file — same convention as aios-workspace:
+# never stored in-repo (would enumerate the protected identifiers).
+leak-gate-terms.sh
+**/leak-gate-terms.sh
+
+# Automation runtime state (fast-follow pipeline, once built): cron state files,
+# gmail watermark/cursor files, drip-sequence send logs.
+/automation-state/
+*.state.json

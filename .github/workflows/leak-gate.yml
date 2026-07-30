@@ -1,0 +1,20 @@
+name: leak-gate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  leak-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run leak-gate
+        env:
+          AIOS_LEAK_TERMS_B64: ${{ secrets.AIOS_LEAK_TERMS_B64 }}
+        run: |
+          chmod +x scripts/leak-gate.sh
+          scripts/leak-gate.sh .
