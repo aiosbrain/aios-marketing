@@ -11,7 +11,7 @@ type: Deliverable
 
 ## Title
 
-AIOS Onboarding — Ubud
+Set Up Your Team's Shared AI Brain — Ubud
 
 ## Tagline (Lu.ma subtitle, ~1 line)
 
