@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>AIOS — Onboarding Ubud — Cover</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Instrument+Sans:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 1200px;
+    height: 1200px;
+    overflow: hidden;
+    background: #0b0b0b;
+    font-synthesis: none;
+  }
+
+  .canvas {
+    position: relative;
+    width: 1200px;
+    height: 1200px;
+    background: #0b0b0b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* subtle grain texture, kept very quiet */
+  .canvas::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 300px 300px;
+  }
+
+  /* extremely subtle vignette, matte not glowy */
+  .canvas::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 42%, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.28) 100%);
+  }
+
+  .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .mark {
+    width: 168px;
+    height: 118px;
+    margin-bottom: 34px;
+  }
+
+  .wordmark {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 320px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+  }
+
+  .subtitle {
+    margin-top: 44px;
+    font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+  }
+
+  .subtitle .dot {
+    display: inline-block;
+    margin: 0 14px;
+    color: #4a4a4a;
+  }
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="content">
+      <svg class="mark" viewBox="0 0 168 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="chevronGrad" x1="8" y1="110" x2="160" y2="110" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#8b5cf6"/>
+            <stop offset="1" stop-color="#84cc16"/>
+          </linearGradient>
+        </defs>
+        <path d="M10 108 L84 10 L158 108" stroke="url(#chevronGrad)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <div class="wordmark">AIOS</div>
+      <div class="subtitle">Ubud, Bali<span class="dot">&middot;</span>Aug 5, 2026</div>
+    </div>
+  </div>
+</body>
+</html>
