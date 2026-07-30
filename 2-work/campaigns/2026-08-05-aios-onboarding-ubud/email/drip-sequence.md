@@ -33,7 +33,9 @@ A few things to bring:
   setting up your actual workspace, not looking at slides.
 
 Can you reply and confirm you're still good for Wednesday? I'm keeping the group
-small on purpose, so I'd rather know now if something's changed.
+small on purpose, so I'd rather know now if something's changed. While you're at it,
+let me know if you've got any dietary restrictions or accessibility needs I should
+plan around.
 
 See you then,
 John
