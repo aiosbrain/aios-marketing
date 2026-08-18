@@ -11,19 +11,28 @@ Local copies of every asset live in `assets/`.
 
 ## The one rule
 
-**The AIOS logo is monochrome.** One ink colour, always. The prism gradient is allowed on the
-**bare mark only** — never on letterforms, never inside a lockup, never next to the wordmark.
+**The wordmark is never coloured.** One flat ink, always, in every context. No exceptions.
 
-This exists because it kept going wrong. A multicolour wordmark (gradient `A`, lime `I`, white
-`OS`) was circulating on the link-preview card, a hand-drawn stroked chevron was used on this
-repo's own campaign covers, and neither matched the site. All of it is retired.
+What varies is the *mark*, and only by context:
+
+- **Product UI and chrome** — the app, the website, docs, anything a user works past — is
+  **fully monochrome**. That's the product's job, not ours, but know the rule so you don't
+  hand a designer the wrong asset.
+- **Brand artwork** — what this repo makes: event covers, social tiles, post images, decks,
+  video. Here the mark carries the **prism gradient** beside a flat-ink wordmark. That's the
+  **display lockup**. On a black field it reads as a brand rather than as UI furniture.
+
+The wordmark rule exists because it kept going wrong. A multicolour wordmark (gradient `A`, lime
+`I`, white `OS`) was circulating on the link-preview card, a hand-drawn stroked chevron was used
+on this repo's own campaign covers, and neither matched the site. All of it is retired.
 
 ## What to reach for
 
 | Artwork | Asset |
 |---|---|
-| Wide canvas — banner, slide master, video lower-third, email header | `assets/aios-lockup-white.svg` (or `-black` on light) |
-| Square-ish canvas — event cover, social tile, title card | `assets/aios-lockup-stacked-white.svg` |
+| Wide canvas — banner, slide master, video lower-third, email header | `assets/aios-lockup-display-white.svg` (or `-black` on light) |
+| Square-ish canvas — event cover, social tile, title card | `assets/aios-lockup-stacked-display-white.svg` |
+| Somewhere the colour would fight the artwork — a busy photo, a coloured plate | the mono `assets/aios-lockup-white.svg` / `-stacked-white.svg` |
 | Avatar, profile picture, favicon | `assets/aios-app-icon.svg` |
 | A hero or sting where the logo is the whole image, ≥48px | `assets/aios-mark-prism.svg` |
 | The symbol alone, where "AIOS" already appears in type nearby | `assets/aios-mark-white.svg` |
@@ -43,15 +52,17 @@ they're for inline SVG and CSS masks only.
 
 ## Video
 
-- Lower-third and end card: `aios-lockup-white.svg`, single ink, no glow, no drop shadow,
-  no animated gradient sweep across the letterforms.
+- Lower-third and end card: `aios-lockup-display-white.svg` — gradient mark, flat white
+  wordmark. No glow, no drop shadow, and **no animated gradient sweep across the letterforms**;
+  the wordmark stays one flat ink even in motion.
 - If you want the gradient in motion, it's the **bare mark** that carries it, alone, on a dark
   field — a sting, then cut. Not a gradient wipe over type.
 - Keep one mark per frame. Mark plus wordmark plus a repeated mark in the corner is three logos.
 
 ## Don't
 
-- Don't recolour the wordmark, per-letter or otherwise.
+- Don't recolour the wordmark, per-letter or otherwise. The gradient belongs to the mark.
+- Don't use a display lockup in a product screenshot or UI mockup — interfaces are monochrome.
 - Don't redraw the mark. There is no situation where hand-drawing a chevron is correct.
 - Don't set `AIOS` in Instrument Serif as a wordmark — that's a headline face, not the logo.
 - Don't put the logo on a busy photo without a solid or scrimmed plate behind it.
