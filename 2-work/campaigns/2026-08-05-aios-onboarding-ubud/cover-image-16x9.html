@@ -5,80 +5,13 @@
 <title>AIOS — Onboarding Ubud — Cover (16:9)</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Instrument+Sans:wght@400;500;600;700&display=swap');
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html, body {
-    width: 1200px;
-    height: 675px;
-    overflow: hidden;
-    background: #0b0b0b;
-    font-synthesis: none;
-  }
-
-  .canvas {
-    position: relative;
-    width: 1200px;
-    height: 675px;
-    background: #0b0b0b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  /* subtle grain texture, kept very quiet */
-  .canvas::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    opacity: 0.05;
-    mix-blend-mode: overlay;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    background-size: 300px 300px;
-  }
-
-  /* extremely subtle vignette, matte not glowy */
-  .canvas::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(circle at 50% 42%, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.28) 100%);
-  }
-
-  .content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1;
-  }
-
-  /* The canonical stacked lockup, single ink. Never rebuild this out of a drawn
-     shape plus type — see 0-context/brand/visual-identity.md. */
-  .lockup {
-    display: block;
-    height: 110px;
-  }
-
-  .subtitle {
-    margin-top: 40px;
-    font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
-    font-weight: 500;
-    font-size: 30px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #8a8a8a;
-  }
-
-  .subtitle .dot {
-    display: inline-block;
-    margin: 0 14px;
-    color: #4a4a4a;
+  :root {
+    --canvas-w: 1200px;
+    --canvas-h: 675px;
+    --lockup-h: 110px;
   }
 </style>
+<link rel="stylesheet" href="cover.css" />
 </head>
 <body>
   <div class="canvas">
