@@ -46,6 +46,13 @@ Every file here is world-readable. Treat it that way before writing it, not afte
   `aios-website/docs/ENGINEERING-CONSTITUTION.md`. Don't document AIOS features that
   aren't in the current tagged release.
 
+- **Artwork follows the visual identity.** The AIOS logo is monochrome, the prism gradient is
+  allowed on the bare mark only, and every asset comes from `0-context/brand/assets/` (copies of
+  `@aios-alpha/design/brand/*`). Never draw a mark, never set `AIOS` in Instrument Serif as a
+  wordmark, never generate a logo with an image model — full detail in
+  `0-context/brand/visual-identity.md`, whose authority is `DESIGN.md` § Brand & Logo in
+  `aios-design`.
+
 **Enforcement layer:** there's no brain-sync tier engine here (no `access:`
 frontmatter rejection like the workspace toolkit has). The only real protection is
 **path-level exclusion** (`.gitignore`) plus `scripts/leak-gate.sh` (ported from
@@ -72,7 +79,7 @@ normal.
 
 | Path | What |
 |------|------|
-| `0-context/` | Durable brand truth — tone of voice, positioning rules, anonymized personas, audience segments. Rarely rewritten; every campaign draws from it, never forks it. |
+| `0-context/` | Durable brand truth — tone of voice, visual identity + brand assets, positioning rules, anonymized personas, audience segments. Rarely rewritten; every campaign draws from it, never forks it. |
 | `1-inbox/` | Raw inputs. `research/` (anonymized research pulls, safe to commit) vs. `raw-transcripts/` (gitignored — unfiltered planning notes that may carry PII/NDA risk before review). |
 | `2-work/campaigns/<date>-<slug>/` | One folder per campaign — the working unit. Scaffolded by the `event-launch` skill. |
 | `3-log/` | `decision-log.md` — append-only, dated, with rationale (same convention as the workspace toolkit). |

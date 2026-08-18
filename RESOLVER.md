@@ -22,6 +22,7 @@ Skill layout: real files in `.agents/skills/`, symlinks in `.claude/skills/`.
 | Any applicant, attendee, email address, LinkedIn URL, or reviewer note | Must land only in `data/` (gitignored) or `1-inbox/raw-transcripts/` (gitignored) — never in `2-work/`, `4-shared/`, `templates/`, or any other tracked path |
 | Any mention of the venue/address | Generic neighborhood only ("Mas, Ubud") in anything committed; the exact address goes only through a private one-to-one channel, post-acceptance |
 | Any persona or archetype content | Fully anonymized generic archetype only — zero names, company details, locations, or case-study figures, even if the source material is a real (possibly NDA-embargoed) engagement |
+| Any AIOS artwork — campaign cover, social tile, deck, video frame | `0-context/brand/visual-identity.md` gate: the logo is monochrome, the prism gradient is bare-mark-only, use the shipped lockups in `0-context/brand/assets/` — never draw a mark or set `AIOS` in a serif |
 | Any marketing copy | `0-context/brand/positioning-rules.md` gate: no participant/engagement stats, "two repos, one system," generic plain-vs-AIOS comparison, honesty over overselling, no unreleased-feature claims |
 | Any commit | Worktrees are REQUIRED, never a branch in the primary checkout — one documented exception: the repo-genesis first commit (see `CLAUDE.md` §3) |
 
