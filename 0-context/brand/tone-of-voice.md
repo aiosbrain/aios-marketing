@@ -67,7 +67,7 @@ talking to someone they respect, not like "AIOS" as an abstract entity talking t
 
 | Sounds like us | Doesn't sound like us |
 |---|---|
-| "MIT-licensed and self-hosted. You decide what leaves your machine." | "Enterprise-grade security you can trust." |
+| "Open source and self-hosted. You decide what leaves your machine." | "Enterprise-grade security you can trust." |
 | "It's two repos, one system. There is no third moving part to manage." | "A comprehensive, all-in-one platform for modern teams." |
 | "Working with agents on your own is amazing. In a team, it breaks down fast." | "Unlock the full potential of agentic collaboration." |
 | "A few concrete pieces are live today." | "We're thrilled to announce our revolutionary new features!" |

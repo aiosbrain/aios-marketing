@@ -29,9 +29,26 @@ event listings, social posts, emails, decks, everything.
    autonomous agents, schema/staleness). Marketing copy should carry that same
    ethos — admit limits, don't oversell. This builds more trust with a technical
    audience than a polished, gap-free pitch would.
-6. **MIT-licensed, self-hosted, "you decide what leaves your machine."** This is the
+6. **Open source, self-hosted, "you decide what leaves your machine."** This is the
    core trust proposition — no cloud lock-in, no forced data sharing. Keep this
    framing intact whenever describing what AIOS is.
+
+   **Lead with the guarantee, not the licence name.** The promise is *you keep
+   everything, we can't take it away*. "Open source" and "self-hosted" carry that;
+   a licence name is supporting evidence, not the pitch. Say "open source" by
+   default and name the licence only where someone is actually asking what the
+   terms are.
+
+   **When you do name it: the server is AGPL-3.0, the SDKs and connectors are
+   Apache-2.0.** Never write "MIT-licensed" — that was true until the relicense and
+   is now false. Two things to say alongside it, because they are what the name
+   makes people wonder: **running AIOS inside your company is completely
+   unrestricted**, and if a company's policy bans AGPL there is a **free commercial
+   licence for internal use** (cn@fluora.ai). An AGPL ban should never be why
+   someone can't try AIOS.
+
+   AGPL is OSI-approved and FSF-listed as free software. It is open source and we
+   say so plainly — that is precisely why we chose it over BUSL or SSPL.
 
 ## What this means for event copy specifically
 
