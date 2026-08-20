@@ -6,7 +6,7 @@
   "type": "module",
   "license": "Apache-2.0",
   "scripts": {
-    "setup": "npm ci",
+    "setup": "npm ci --ignore-scripts",
     "test": "node --test \"test/**/*.test.mjs\"",
     "test:coverage": "c8 --reporter=text --reporter=json-summary --reporter=lcov --include='.agents/skills/**/*.mjs' node --test \"test/**/*.test.mjs\"",
     "lint:shell": "shellcheck --severity=warning $(git ls-files '*.sh')",

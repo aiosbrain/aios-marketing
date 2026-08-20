@@ -107,7 +107,7 @@ Two things here are code, and both are covered:
 | `.agents/skills/event-launch/scaffold-campaign.mjs` | `test/scaffold-campaign.test.mjs` (`npm test`), coverage via `npm run test:coverage` |
 
 ```bash
-npm run setup          # npm ci
+npm run setup          # npm ci --ignore-scripts
 npm test               # the scaffolder suite
 npm run test:coverage  # same suite + coverage/ (gitignored; CI regenerates it)
 npm run lint:shell     # matches ci.yml's lint-shell job

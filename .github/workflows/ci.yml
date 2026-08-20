@@ -49,6 +49,8 @@ jobs:
         with:
           node-version: "22"
           cache: npm
-      - run: npm ci
+      # --ignore-scripts: nothing in this tree needs a dependency lifecycle script to run,
+      # and this repo is public, so a runner should not execute one. c8 has no postinstall.
+      - run: npm ci --ignore-scripts
       - name: npm run test:coverage
         run: npm run test:coverage
