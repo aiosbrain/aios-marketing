@@ -34,6 +34,9 @@ Skill layout: real files in `.agents/skills/`, symlinks in `.claude/skills/`.
 | Questions about the applicant-review/drip automation | `.agents/skills/applicant-pipeline/SKILL.md` (spec-only stub → Linear issue, not implemented) |
 | Writing or rewriting any copy | Global skills — `copywriting`, `email-sequence`, `social-content`, `content-strategy`, `customer-research` — not vendored here, invoke the user's existing global skills |
 | PM/board work referencing this repo's automation spec | Global `aios-linear` skill (team **AIO**) |
+| Editing `.agents/skills/event-launch/scaffold-campaign.mjs` | `npm test` before pushing — `test/scaffold-campaign.test.mjs` covers it, and `ci.yml`'s `test` job gates it |
+| Editing any `*.sh` (incl. `scripts/leak-gate.sh`) | `npm run lint:shell` before pushing — `ci.yml`'s `lint-shell` job runs `shellcheck --severity=warning` + `bash -n` |
+| Tempted to add a test over Markdown/campaign copy | Don't — `CLAUDE.md` §5 says what is tested here and why content deliberately is not |
 
 ## Sub-Repo Delegation
 

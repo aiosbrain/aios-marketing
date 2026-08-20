@@ -19,10 +19,10 @@ import { join, dirname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = join(__dirname, "..", "..", "..");
+export const REPO_ROOT = join(__dirname, "..", "..", "..");
 const TEMPLATE_DIR = join(REPO_ROOT, "templates", "campaign-folder");
 
-function parseArgs(argv) {
+export function parseArgs(argv) {
   const out = {};
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -40,14 +40,14 @@ function parseArgs(argv) {
   return out;
 }
 
-function slugify(s) {
+export function slugify(s) {
   return s
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
 
-function substitute(content, tokens) {
+export function substitute(content, tokens) {
   let out = content;
   for (const [key, value] of Object.entries(tokens)) {
     out = out.split(`{{${key}}}`).join(value);
@@ -55,7 +55,7 @@ function substitute(content, tokens) {
   return out;
 }
 
-function copyTemplateTree(srcDir, destDir, tokens) {
+export function copyTemplateTree(srcDir, destDir, tokens) {
   mkdirSync(destDir, { recursive: true });
   for (const entry of readdirSync(srcDir)) {
     const srcPath = join(srcDir, entry);
@@ -71,7 +71,22 @@ function copyTemplateTree(srcDir, destDir, tokens) {
   }
 }
 
-function main() {
+/**
+ * Resolve the campaign folder NAME from parsed args.
+ *
+ * `--slug` is slugified even when supplied explicitly. It previously was not: the value
+ * went straight into a `join(REPO_ROOT, "2-work", "campaigns", ...)` path, so
+ * `--slug "../../4-shared/oops"` wrote the campaign outside `2-work/campaigns/`, and a slug
+ * with spaces or uppercase produced a folder that did not match the documented
+ * `<date>-<slug>` convention. Slugify strips `/`, `.` and whitespace to `-`, which closes
+ * both. An auto-derived slug was always slugified; an explicit one is not more trusted.
+ */
+export function campaignFolderName(args) {
+  const eventSlug = slugify(String(args.slug || args.name || ""));
+  return { eventSlug, folderName: `${args.date}-${eventSlug}` };
+}
+
+export function main() {
   const args = parseArgs(process.argv.slice(2));
   const required = ["name", "date", "time", "city"];
   const missing = required.filter((k) => !args[k]);
@@ -82,8 +97,7 @@ function main() {
   }
 
   const eventDate = args.date;
-  const eventSlug = args.slug || slugify(args.name);
-  const folderName = `${eventDate}-${eventSlug}`;
+  const { eventSlug, folderName } = campaignFolderName(args);
   const destDir = join(REPO_ROOT, "2-work", "campaigns", folderName);
 
   if (existsSync(destDir)) {
@@ -113,4 +127,8 @@ function main() {
   console.log("  6. Write the exact venue address ONLY to venue-address.md (gitignored) — never elsewhere.");
 }
 
-main();
+// Only run when executed directly. Importing this module for tests must not scaffold a
+// campaign folder as a side effect.
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  main();
+}
