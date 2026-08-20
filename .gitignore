@@ -1,5 +1,6 @@
 .DS_Store
 node_modules/
+coverage/
 
 # Repo is PUBLIC. Nothing below this line may ever be committed.
 

@@ -89,10 +89,42 @@ normal.
 | `data/` | Applicant/attendee runtime data — gitignored except `data/README.md`. |
 | `.agents/skills/` | Real skill files (`.claude/skills/` holds symlinks — same convention as `aios-workspace`). |
 | `docs/` | Working specs, e.g. `linear-spec-applicant-pipeline.md` (drafting copy before/after it's pushed to Linear). |
+| `test/` | Tests for `.agents/skills/event-launch/scaffold-campaign.mjs` — the repo's one executable. Nothing else here is tested, on purpose (see §7). |
 
 ---
 
-## 5. Automation is spec-only for now
+## 5. What is tested, and what deliberately is not
+
+This is a content repo. Its files are brand truth, personas and campaign copy — prose
+that is reviewed, not asserted on. **Do not add tests over content**; a test that a
+Markdown file contains a heading proves nothing and rots on the first rewrite.
+
+Two things here are code, and both are covered:
+
+| Surface | Gate |
+|---|---|
+| `scripts/leak-gate.sh`, `.github/scripts/*.sh` | `shellcheck --severity=warning` + `bash -n`, in `ci.yml`'s `lint-shell` job |
+| `.agents/skills/event-launch/scaffold-campaign.mjs` | `test/scaffold-campaign.test.mjs` (`npm test`), coverage via `npm run test:coverage` |
+
+```bash
+npm run setup          # npm ci
+npm test               # the scaffolder suite
+npm run test:coverage  # same suite + coverage/ (gitignored; CI regenerates it)
+npm run lint:shell     # matches ci.yml's lint-shell job
+npm run leak-gate      # matches leak-gate.yml
+```
+
+`package.json` exists only to give that one script a test entry point. This repo is
+`private: true` and is never published; do not add runtime dependencies to it.
+
+One consequence worth knowing about the numbers this feeds: the AIOS Codebases
+dashboard reads coverage from `coverage/coverage-summary.json`, so that percentage
+describes **one 116-line script** and says nothing about the other ~90% of the repo.
+Read it as "the scaffolder is tested", not "this repo is well covered".
+
+---
+
+## 6. Automation is spec-only for now
 
 The applicant-review pipeline (Gmail watch, Firecrawl profile lookups,
 semi-automated approve/deny drafts, drip sender) is **not implemented**. It's
@@ -102,7 +134,7 @@ pieces of this ad hoc — build against the spec, or update the spec first.
 
 ---
 
-## 6. Do not
+## 7. Do not
 
 - **Do not** commit anything under `data/`, `1-inbox/raw-transcripts/`, `5-personal/`,
   or any `venue-address.*` file.
